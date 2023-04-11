@@ -9,11 +9,11 @@
 ## Getting Started
 * Clone the repo or paste this in your terminal.
   ```
-  https://github.com/omar-njie/Linux-Mastermind-Discord-Bot.git
+  git clone https://github.com/omar-njie/Linux-Mastermind-Discord-Bot.git
   ```
 * Activate the virtual environment.
   ```
-  cd discord-bot
+  cd Linux-Mastermind-Discord-Bot
   source venv/bin/activate
   ```
 * Install the dependencies.
