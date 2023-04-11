@@ -1,0 +1,11 @@
+# Pycharm
+.idea
+
+# VSCode
+.vscode
+
+# Mac
+.DS_Store
+
+# Python
+.env
