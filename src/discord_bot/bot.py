@@ -3,6 +3,7 @@ import logging
 import discord
 from discord.ext import commands
 
+
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -22,6 +23,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CommandNotFound):
         return
     logging.exception(f'Error executing command "{ctx.message.content}"', exc_info=error)
+    print(f'Error executing command "{ctx.message.content}": {error}')
 
     # Create a new file and log the error there
     with open('error.log', 'a') as f:
@@ -34,9 +36,8 @@ async def on_member_join(member):
     channel = bot.get_channel(channel_id)
 
     if channel is not None:
-        to_send = f'Welcome {member.mention} to {guild.name}!'
-        await channel.send(to_send)
-        await member.send(f'Hello {member.name}! Welcome to our Discord server.')
+        await channel.send(f'Welcome {member.name} to {guild.name}!')
+        await member.send(f'Hello {member.name}! Welcome to the {guild.name} Discord server.')
 
 
 @bot.event
@@ -45,8 +46,7 @@ async def on_member_remove(member):
     channel = bot.get_channel(channel_id)
 
     if channel is not None:
-        to_send = f'Goodbye {member.mention} from {guild.name}!'
-        await channel.send(to_send)
+        await channel.send(f'Goodbye {member.name} from {guild.name}!')
 
 
 @bot.command()
@@ -68,3 +68,4 @@ async def hello(ctx):
 @bot.command()
 async def resources(ctx):
     await ctx.send('resources')
+
