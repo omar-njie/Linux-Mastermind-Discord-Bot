@@ -28,3 +28,5 @@ $ pip install -r requirements.txt
 1. Fork the repository to your own profile and make changes there.
 2. When you're done with a feature, open a pull request.
 3. If you have any questions, please contact us in our Discord server.
+
+https://discord.gg/4H9JDU5C
