@@ -21,7 +21,7 @@ Note: You can skip this step if you prefer to install dependencies globally.
 
 3. Install the dependencies:
 ```
-$ pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Contributing
