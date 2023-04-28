@@ -2,7 +2,39 @@ import logging
 
 import discord
 from discord.ext import commands
+import requests
+from bs4 import BeautifulSoup
 
+
+# Define the hardcoded Linux commands
+# linux_commands = {
+#     'ls': {
+#         'usage': 'ls [OPTIONS] [FILE]',
+#         'description': 'List directory contents',
+#         'examples': [
+#             'ls',
+#             'ls -l',
+#             'ls -a',
+#         ]
+#     },
+#     'cd': {
+#         'usage': 'cd [DIRECTORY]',
+#         'description': 'Change directory',
+#         'examples': [
+#             'cd /home/user/documents',
+#             'cd ..',
+#             'cd ~',
+#         ]
+#     },
+#     'mkdir': {
+#         'usage': 'mkdir [OPTIONS] DIRECTORY',
+#         'description': 'Make directories',
+#         'examples': [
+#             'mkdir directory_name',
+#             'mkdir -p parent_directory/sub_directory',
+#         ]
+#     }
+# }
 
 intents = discord.Intents.default()
 intents.members = True
@@ -68,4 +100,60 @@ async def hello(ctx):
 @bot.command()
 async def resources(ctx):
     await ctx.send('resources')
+
+
+# @bot.command()
+# async def linux_command(ctx, command_name):
+#     # Fetch command information from the linux_commands dictionary
+#     if command_name in linux_commands:
+#         command = linux_commands[command_name]
+#         usage = command['usage']
+#         description = command['description']
+#         examples = '\n'.join(command['examples'])
+#
+#         # Format the response
+#         embed = discord.Embed(title=f'Linux Command: {command_name}', color=discord.Color.green())
+#         embed.add_field(name='Usage', value=f'```\n{usage}\n```', inline=False)
+#         embed.add_field(name='Description', value=description, inline=False)
+#         embed.add_field(name='Examples', value=examples, inline=False)
+#         await ctx.send(embed=embed)
+#     else:
+#         await ctx.send(f'Error: Linux command not found.')
+
+# linux_commands = {
+#     'ls': {
+#         'usage': 'ls [OPTION]... [FILE]...',
+#         'description': 'List information about files and directories.',
+#         'examples': ['- ls: List files and directories in the current directory.',
+#                      '- ls -l: List files and directories in long format.',
+#                      '- ls -a: List all files and directories, including hidden ones.']
+#     },
+#     'mkdir': {
+#         'usage': 'mkdir [OPTION] DIRECTORY...',
+#         'description': 'Create directories.',
+#         'examples': ['- mkdir my_directory: Create a directory with the name "my_directory".',
+#                      '- mkdir -p /path/to/directory: Create a directory with intermediate directories if they do not exist.']
+#     },
+#     # Add more commands here
+# }
+#
+#
+# # Command to lookup Linux commands
+# @bot.command()
+# async def linux_command(ctx, command_name):
+#     # Fetch command information from the dictionary
+#     command_info = linux_commands.get(command_name.lower())
+#     if command_info:
+#         usage = command_info.get('usage')
+#         description = command_info.get('description')
+#         examples = '\n'.join(command_info.get('examples'))
+#
+#         # Format the response
+#         embed = discord.Embed(title=f'Linux Command: {command_name}', color=discord.Color.green())
+#         embed.add_field(name='Usage', value=f'```\n{usage}\n```', inline=False)
+#         embed.add_field(name='Description', value=description, inline=False)
+#         embed.add_field(name='Examples', value=examples, inline=False)
+#         await ctx.send(embed=embed)
+#     else:
+#         await ctx.send('Command not found.')
 
