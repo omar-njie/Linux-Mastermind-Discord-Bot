@@ -65,6 +65,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_member_join(member):
     guild = member.guild
+    channel_id = 1195423966781788180  # Replace with your Landed channel ID
     channel = bot.get_channel(channel_id)
 
     if channel is not None:
